@@ -73,3 +73,24 @@ void Interrupts ( bool state )
     else
         IntDisable ();
 }
+
+void VoltageMeas_Init ( void )
+{
+    ADC_Init ( ADC_STARTCHANNEL );
+}
+
+float GetVoltage ( unsigned int channel )
+{
+    volatile float result = 0;
+
+    if ( channel == 0 )
+    {
+        result = (ADC_Result_3V3 * ADC1_VOLTAGE) / 5.00;
+    }
+    else if ( channel == 1 )
+    {
+        result = (ADC_Result_5V * ADC0_VOLTAGE) / 5.00;
+    }
+
+    return result;
+} 

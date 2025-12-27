@@ -23,3 +23,9 @@ void IntEnable ( void );
 
 // Disable global interrupts
 void IntDisable (void );
+
+/*****************************************
+ * Analog-Digital Conversion
+*****************************************/
+// Initialization
+void ADC_Init ( unsigned int start_channel );

@@ -43,3 +43,14 @@ void IntDisable ( void )
 {
     cli();
 }
+
+void ADC_Init ( unsigned int start_channel )
+{
+    // enable ADC , enable interrupt, ADC frequency divider 64
+    ADCSRA = (1<<ADEN) | (1<<ADIE) | (1<<ADPS2) | (1<<ADPS1);
+    // select start channel for conversion
+    ADMUX = (ADMUX & ~0x1F) | start_channel;
+
+    // start conversion
+    ADCSRA |= (1<<ADSC);
+}

@@ -55,3 +55,13 @@ unsigned char Comm_Rx ( void );
 
 // set interrupt state
 void Interrupts ( bool state );
+
+/*****************************************
+ * Analog-Digital Cpnversion
+*****************************************/
+#define ADC0_VOLTAGE 5.0
+#define ADC1_VOLTAGE 3.3
+#define ADC_STARTCHANNEL 0
+
+void VoltageMeas_Init ( void );
+float GetVoltage (unsigned int channel );
